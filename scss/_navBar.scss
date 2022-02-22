@@ -1,0 +1,54 @@
+.menuItem{
+ 
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size .3s;
+  font-weight: 700;
+
+
+}
+.menuItem:hover, .menuItem:focus{
+  background-size: 100% 2px;
+  color: #493F30;
+
+}
+.iconos{
+  display: flex;
+  justify-content: right;
+  i{ color: $color;
+    &:hover{
+      color: #fff;
+    }
+  }
+}
+
+.subMenu2:hover{
+  background-color: $fondoClaro;
+  
+}
+
+.logoPrincipal{
+  height: 60px;
+
+  border-radius: 25%;
+}
+
+#botonera{
+  background-color: $fondoClaro;
+}
+
+#navbarSupportedContent{
+  ul{
+    li{
+      a{
+        color: $color;
+      }
+    }
+  }
+}
+
+#botonNav, #iconoNav, .navbar-toggler-icon{
+  color: $color;
+}

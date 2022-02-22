@@ -1,0 +1,41 @@
+//definimos vars
+
+$fondo: #aabbaa;
+$tprincipal: #153959;
+$tsecundario: #034c8c;
+$color: #8c0327;
+$fondoClaro: #e8b1a8;
+
+$w-100: 100%;
+$w-80: 80%;
+$width: 100%;
+
+// scss-docs-start theme-color-variables
+$primary:       #8c0327;
+$secondary:     $tsecundario ;
+$info:          $tprincipal ;
+$dark:          $fondo;
+// scss-docs-end theme-color-variables
+
+@for $i from 1 through 6{
+	.teext-#{$i}{
+		font-size: 1em *$i;
+	}
+}
+
+$bordes:( 
+	azul:#153959,
+	bordo:#8c0327,
+	rosa:$fondoClaro);
+
+@each $name-borde, $bg-borde in $bordes{
+	.borde-#{$name-borde}{
+		border-color: $bg-borde;
+	}
+}
+
+@for $i from 10 through 50{
+	.radio-#{$i}{
+		border-radius: 1px *$i;
+	}
+}

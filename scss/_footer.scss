@@ -1,0 +1,30 @@
+.menuInferior:hover{
+	color: #fff;
+}
+footer{
+	a{
+		i{color: $color;
+			&:hover{
+				color: #fff;
+			}
+		}
+	}
+}
+
+footer{
+	background-color: $fondoClaro;
+	a{
+		text-decoration: none;
+		color: $color;
+		&:hover{
+			color: $tprincipal;
+		}
+	}
+}
+
+
+.logoFooter{  
+	height: 40px;
+	
+  	border-radius: 25%;
+}

@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+$mainFont: ubuntu , sans-serif ;
+$titulo: Permanent Marker , cursive ;
+
+
+#eslogan{
+	font-family: Permanent Marker , cursive ;
+ 	color: #153959;
+}
+.tituloh1{
+  font-family: Permanent Marker , cursive ;
+  color: #153959;
+}
+
+h3{
+	color: $tprincipal;
+}

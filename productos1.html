@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://kit.fontawesome.com/a646675d75.js" crofile:///C:/Users/Hippies/Desktop/dise%C3%B1o_web/ProyectResponsiveBS%20-%20copia/img/banner1.pngssorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <title>bodys en Tienda Mora - OswaldoMendez</title>
+    <meta name="keywords" content="tienda, ropa, productos, body, top, remeras, polleras">
+    <meta name="author" content="Tienda Mora">
+    <meta name="copyright" content="Derechos de author">
+  </head>
+<body>
+<!-- ------------------INICIA NAV------------- -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top sticky-top" id="botonera">
+    <div class="container-fluid ">
+      <a class="navbar-brand" href="index.html"><img class="logoPrincipal borde-bordo" src="img/logoMora.png" alt="Logo"></a>
+      <button id="botonNav" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span id="iconoNav" class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle menuItem" href="colecciones.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Colecciones
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item menuItem  subMenu2" href="colecciones.html">Primavera</a></li>
+              <li><a class="dropdown-item  menuItem subMenu2" href="colecciones.html">Verano</a></li>
+              <li><a class="dropdown-item  menuItem subMenu2" href="colecciones.html">Otoño</a></li>
+              <li><a class="dropdown-item  menuItem subMenu2" href="colecciones.html">Invierno</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link   menuItem" aria-current="page" href="novedades.html">Novedades</a>
+          </li>
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle  menuItem" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Productos
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item  menuItem" href="productos_remeras.html">Remeras</a></li>
+              <li><a class="dropdown-item  menuItem subMenu2" href="productos_bodys.html">Body</a></li>
+              <li><a class="dropdown-item  menuItem subMenu2" href="productos_tops.html">Tops</a></li>
+              <li><a class="dropdown-item  menuItem subMenu2" href="productos_conjuntos.html">Conjuntos</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  menuItem" href="contacto.html">Contacto</a>
+          </li>
+         
+        </ul>
+        
+        <div class="iconos  fs-3 ">
+          <a href="#" class="me-2">
+            <i class="fas fa-user-circle color1"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+<!-- ------------------TERMINA NAV------------- -->
+<main class="container-fluid bg-light py-3">
+<!-- Button trigger modal -->
+<div class="d-flex justify-content-end">
+    <button type="button" class="d-flex btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <i class=" fas fa-shopping-cart carrito color1" ></i>
+    </button>
+</div>
+<!-- Modal -->
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Carrito de Compras</h5>
+              <h5 class="ms-4"><span id="contadorCarrito">0</span></h5> 
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class=" modal-body px-2" id=contenedorModal>
+              <div id="carritoContenedor">
+
+              </div >
+            </div>
+              <p class="precioProducto ms-2 teext-1">Precio total: $<span id="precioTotal">0</span></p>
+           <div id="mensajeCompra">
+             
+             
+           </div>
+
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary" id="btnComprar">Comprar</button>
+            </div>
+          </div>
+        </div>
+       
+      </div>
+
+ <div class="py-2 d-flex justify-content-end">
+    <select class="subMenu2 menuItem" name="" id="seleccionTipo">
+      <option value="all">Todos</option>
+      <option value="remera">Remeras</option>
+      <option value="body">Bodys</option>
+      <option value="top">Tops</option>
+
+    </select>
+     </div>
+
+
+<div class="container-fluid">
+<div   class="container-fluid d-flex flex-wrap mb-3 me-auto justify-content-center px-2" id="contenedorProductos">
+ 
+
+</div>   
+</div>
+</main>
+
+<!-- ------------------INICIA FOOTER------------ -->
+
+<footer class="container-fluid py-2">
+  <div class="d-flex flex-row justify-content-between">
+    <div class=" ms-4 d-flex align-items-center"> 
+      <a href=" index.html"><img class="logoFooter" src="img/logoMora.png" alt="Logo"></a>
+    </div>
+    <div class=" d-flex flex-column align-items-center justify-content-center fs-6 "> 
+      <a href="q_somos.html" class="menuInferior" >Quienes Somos</a>
+      <a href="pFrecuentes.html" class="menuInferior">Preguntas Frecuentes</a>
+      <a href="cComprar.html" class="menuInferior">Como comprar</a>
+    </div>
+    <div class="d-flex flex-row align-items-start me-4 fs-3">
+      <a href="contacto.html" class="me-2"><i class="fas fa-envelope-square color1"></i></a>
+      <a href="https://wa.me/c/5491140567599" target="_blank" class="me-2"><i class="fab fa-whatsapp-square color1"></i></a>
+      <a href="https://instagram.com/moramoritashop?utm_medium=copy_link" target="_blank" class="me-2"><i class="fab fa-instagram-square color1 "></i></a>
+      <a href=""><i class="fab fa-telegram color1"></i></a>
+    </div>
+  </div>
+  
+
+</footer>
+
+<!-- ------------------TERMINA FOOTER------------- -->
+
+
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+   
+    <script src="js/productos.js"></script>
+    <script src="js/app5.js"></script> 
+</body>
+</html>
