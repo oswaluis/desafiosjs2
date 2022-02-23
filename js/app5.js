@@ -4,7 +4,9 @@ const seleccionTipo = document.getElementById("seleccionTipo")
 const contadorCarrito = document.getElementById("contadorCarrito")
 const carrito = document.getElementById("carritoContenedor")
 const precioTotal = document.getElementById("precioTotal")
-const buscador = document.getElementById("buscador")
+const btnCerrar = document.getElementById("btnCerrar")
+const contenedorModal = document.getElementById("contenedorModal")
+
 
 
 
@@ -44,28 +46,47 @@ mostrarStock(stock)
 			let btnCarrito = document.getElementById(`botonCarr${cod}`)
 			// console.log(btnCarrito)
 			btnCarrito.addEventListener("click",()=>{
-			agregarCarrito(producto)
+			agregarCarrito(producto.id)
+			Toastify({
+				  text: "Producto Agregado",
+				  className: "info",
+				  style: {
+				   background: "#153959",
+				  }
+				}).showToast();
 			})
 		}
 	}
 
 
-function agregarCarrito(id){
-	let repeat = carritoDeCompras.find(item => item.id == id)
+function agregarCarrito(cod){
+	let repeat = carritoDeCompras.find(item => item.id == cod)
 	if(repeat){
 		const {id, cantidad} = repeat
+		
+		repeat.cantidad +=1
 		console.log(repeat)
-		repeat.cantidad ++
-		document.getElementById(`cantidad${id}`).innerHTML = `<p id= cantidad${id}> Cantidad: ${cantidad}</p>`
+		document.getElementById(`cantidad${id}`).innerHTML = `<p id= cantidad${id}> Cantidad: ${repeat.cantidad}</p>`
 		actCarrito()
 	}else{
 
-		let productoAgg = stock.find(elemento => elemento.id == id)
+		let productoAgg = stock.find(elemento => elemento.id == cod)
 		console.log(productoAgg)
 		carritoDeCompras =  [...carritoDeCompras, productoAgg]
-		const { nombre, precio, cantidad, id } = productoAgg
+		
 		actCarrito()
-		let div = document.createElement('div')
+		mostrarCarrito(productoAgg)
+		
+	}
+
+	localStorage.setItem("carro", JSON.stringify(carritoDeCompras))
+
+	
+}
+
+function mostrarCarrito(productoAgg){
+	const { nombre, precio, cantidad, id } = productoAgg
+	let div = document.createElement('div')
 		div.className = "productosCarrito"
 		div.innerHTML = `  
 						
@@ -85,20 +106,29 @@ function agregarCarrito(id){
 				carritoDeCompras = carritoDeCompras.filter(elemento => elemento.id != productoAgg.id)
 				actCarrito()
 				localStorage.setItem("carro", JSON.stringify(carritoDeCompras))
+				Toastify({
+						text: "Producto eliminado",
+						className: "info",
+						style: {
+							background: "#8c0327",
+							 }
+						}).showToast();
 			}else{
 				const {cantidad, id } = productoAgg
-				productoAgg.cantidad --
-				document.getElementById(`cantidad${id}`).innerHTML = `<p id= cantidad${id}> Cantidad: ${cantidad}</p>`
+				productoAgg.cantidad -=1
+				document.getElementById(`cantidad${id}`).innerHTML = `<p id= cantidad${id}> Cantidad: ${productoAgg.cantidad}</p>`
 				actCarrito()
 				localStorage.setItem("carro", JSON.stringify(carritoDeCompras))
+				Toastify({
+						text: "Item eliminado",
+						className: "info",
+						style: {
+							background: "#8c0327",
+							}
+						}).showToast();
 			}
 			
 		})
-	}
-
-	localStorage.setItem("carro", JSON.stringify(carritoDeCompras))
-
-	
 }
 
 function actCarrito(){
@@ -111,7 +141,7 @@ function recuperar(){
 	let recuperarLS = JSON.parse(localStorage.getItem("carro"))
 	recuperarLS &&
 		recuperarLS.forEach(element => {
-			agregarCarrito(element.id)
+			mostrarCarrito(element)
 			carritoDeCompras.push(element)
 			actCarrito()
 
@@ -128,10 +158,14 @@ btnComprar.addEventListener("click",()=>{
 	console.log("Felicitaciones ud ha comprado")
 	localStorage.clear()
 	btnComprar.remove()
-	mensajeCompra.innerHTML=""
-	let div = document.createElement("div")
-	div.className = "message"
-	div.innerHTML = `Felicitaciones su compra llegara lo antes posible
-	`
-	mensaje.appendChild(div)
+	
+
+		Swal.fire({
+		  title: 'Felicitaciones',
+		  text: 'Tu compra se ha realizado con exito',
+		  imageUrl: './img/logoMora.png',
+		  imageWidth: 400,
+		  imageHeight: 200,
+		  imageAlt: 'Custom image',
+		})
 })

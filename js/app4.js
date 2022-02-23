@@ -44,6 +44,13 @@ mostrarStock(stock)
 			// console.log(btnCarrito)
 			btnCarrito.addEventListener("click",()=>{
 			agregarCarrito(producto.id)
+			Toastify({
+				  text: "Producto Agregado",
+				  className: "info",
+				  style: {
+				    background: "#153959",
+				  }
+				}).showToast();
 			})
 		}
 	}
@@ -53,7 +60,7 @@ function agregarCarrito(id){
 	let repeat = carritoDeCompras.find(item => item.id == id)
 	if(repeat){
 		console.log(repeat)
-		repeat.cantidad= repeat.cantidad + 1
+		repeat.cantidad ++
 		document.getElementById(`cantidad${repeat.id}`).innerHTML = `<p id= cantidad${repeat.id}> Cantidad: ${repeat.cantidad}</p>`
 		actCarrito()
 	}else{
@@ -82,11 +89,25 @@ function agregarCarrito(id){
 				carritoDeCompras = carritoDeCompras.filter(elemento => elemento.id != productoAgg.id)
 				actCarrito()
 				localStorage.setItem("carro", JSON.stringify(carritoDeCompras))
+							Toastify({
+							  text: "Producto eliminado",
+							  className: "info",
+							  style: {
+							    background: "#8c0327",
+							  }
+							}).showToast();
 			}else{
-				productoAgg.cantidad = productoAgg.cantidad - 1
+				productoAgg.cantidad --
 				document.getElementById(`cantidad${productoAgg.id}`).innerHTML = `<p id= cantidad${productoAgg.id}> Cantidad: ${productoAgg.cantidad}</p>`
 				actCarrito()
 				localStorage.setItem("carro", JSON.stringify(carritoDeCompras))
+							Toastify({
+								  text: "Item eliminado",
+								  className: "info",
+								  style: {
+								    background: "#8c0327",
+								  }
+								}).showToast();
 			}
 			
 		})
@@ -128,4 +149,12 @@ btnComprar.addEventListener("click",()=>{
 	div.innerHTML = `Felicitaciones su compra llegara lo antes posible
 	`
 	mensaje.appendChild(div)
+	Swal.fire({
+		  title: 'Felicitaciones',
+		  text: 'Tu compra se ha realizado con exito',
+		  imageUrl: './img/logoMora.png',
+		  imageWidth: 400,
+		  imageHeight: 200,
+		  imageAlt: 'Custom image',
+		})
 })
