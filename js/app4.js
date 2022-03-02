@@ -61,6 +61,7 @@ function agregarCarrito(id){
 	if(repeat){
 		console.log(repeat)
 		repeat.cantidad ++
+		
 		document.getElementById(`cantidad${repeat.id}`).innerHTML = `<p id= cantidad${repeat.id}> Cantidad: ${repeat.cantidad}</p>`
 		actCarrito()
 	}else{
@@ -149,12 +150,5 @@ btnComprar.addEventListener("click",()=>{
 	div.innerHTML = `Felicitaciones su compra llegara lo antes posible
 	`
 	mensaje.appendChild(div)
-	Swal.fire({
-		  title: 'Felicitaciones',
-		  text: 'Tu compra se ha realizado con exito',
-		  imageUrl: './img/logoMora.png',
-		  imageWidth: 400,
-		  imageHeight: 200,
-		  imageAlt: 'Custom image',
-		})
+
 })

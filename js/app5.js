@@ -1,4 +1,5 @@
 let carritoDeCompras = []
+let stock = []
 const contenedorProductos = document.getElementById("contenedorProductos")
 const seleccionTipo = document.getElementById("seleccionTipo")
 const contadorCarrito = document.getElementById("contadorCarrito")
@@ -20,8 +21,12 @@ seleccionTipo.addEventListener("change", ()=> {
 	 	}}
 	)
 
+fetch('productos.json')	
+	.then(Response => Response.json())
+	.then(data => {mostrarStock(data)
+		data.forEach(el=>stock.push(el))})
+	.catch(error => console.log(error))
 
-mostrarStock(stock)
 	
 	function mostrarStock(array){
 		contenedorProductos.innerHTML="";
